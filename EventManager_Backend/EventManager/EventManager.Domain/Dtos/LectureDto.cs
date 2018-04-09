@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -32,4 +32,3 @@ namespace EventManager.Domain.Dtos
         public List<ReviewDto> Reviews { get; set; }
     }
 }
-

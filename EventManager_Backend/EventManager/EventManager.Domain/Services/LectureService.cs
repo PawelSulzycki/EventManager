@@ -110,5 +110,51 @@ namespace EventManager.Domain.Services
             _context.SaveChanges();
             return true;
         }
+
+        public bool SignForLecture(LectureUserDto lectureUserDto, LectureDto lectureDto)
+        {
+            if (!(_context.SimpleUsers.Any()) || !(_context.Lectures.Any()))
+            {
+                return false;
+            }
+
+            var userLectureDB = new LectureUser()
+            {
+                UserId = lectureUserDto.Id,
+                LectureId = lectureDto.Id,
+
+            };
+
+            _context.LectureUsers.Add(userLectureDB);
+            _context.SaveChanges();
+
+            return true;
+        }
+
+        public List<LectureUserDto> GetLectureUser()
+        {
+            var tmp = _context.LectureUsers.Select(x => x);
+
+            if (tmp == null)
+            {
+                return null;
+            }
+
+            List<LectureUserDto> lectureUserDtos = new List<LectureUserDto>();
+
+            foreach (var item in tmp)
+            {
+                lectureUserDtos.Add(new LectureUserDto()
+               {
+                   Id = item.Id,
+                   LectureId = item.LectureId,
+                   UserId = item.UserId,
+
+                });
+            }
+            return lectureUserDtos;
+        }
+
     }
 }
+//
