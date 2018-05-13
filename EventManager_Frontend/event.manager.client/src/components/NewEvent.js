@@ -13,6 +13,7 @@ class NewEvent extends React.Component {
             endDate: '',
             participantNumber:0,
             description: '',
+            eventId:0,
         };
     }
 
@@ -37,13 +38,14 @@ class NewEvent extends React.Component {
     }
 
     addEvent = () => {
-        axios.post('/event', {ownerId: 1, name: this.state.name, participantNumber: this.state.participantNumber, startDate: this.state.startDate, endDate: this.state.endDate, description: this.state.description })
+        axios.post('/event', {eventId: this.state.eventId ,ownerId: 1, name: this.state.name, participantNumber: this.state.participantNumber, startDate: this.state.startDate, endDate: this.state.endDate, description: this.state.description })
             .then(()=>{
             })
             .catch((err)=>{
                 console.log(err);
             });
     }
+
 
     render() {
         return (

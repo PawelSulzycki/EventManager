@@ -5,6 +5,7 @@ import HomeNavbar from './components/Navbar';
 import Event from './components/Event';
 import {Label, FormControl, Button, ButtonToolbar} from 'react-bootstrap';
 import NewEvent from './components/NewEvent';
+import NewLecture from './components/NewLecture';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 class App extends Component {
@@ -14,7 +15,8 @@ render() {
         <BrowserRouter>
           <div>
               <Route path='/newEvent' component={NewEvent}/>
-              <Route exact path='/' component={Event}/>
+              <Route path='/newLecture' component={NewLecture}/>
+              <Route exact path='/' component={NewLecture}/>
           </div>
         </BrowserRouter>
       </div>
