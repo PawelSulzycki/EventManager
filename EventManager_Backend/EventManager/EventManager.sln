@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2005
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventManager.Api", "EventManager.Api\EventManager.Api.csproj", "{EF8DA9E2-4E59-419F-BC32-B26E3B42C696}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventManager.Api", "EventManager.Api\EventManager.Api.csproj", "{EF8DA9E2-4E59-419F-BC32-B26E3B42C696}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventManager.Domain", "EventManager.Domain\EventManager.Domain.csproj", "{69DFCCFB-C747-4F80-A238-FE7EEBFA6D15}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventManager.Domain", "EventManager.Domain\EventManager.Domain.csproj", "{69DFCCFB-C747-4F80-A238-FE7EEBFA6D15}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

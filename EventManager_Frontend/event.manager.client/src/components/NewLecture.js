@@ -10,9 +10,9 @@ class NewLecture extends React.Component {
             name: '',
             startdate: '',
             endDate: '',
-            participantNumber:0,
+            participantNumber:null,
             description: '',
-            eventId: 0
+            eventId: null
         };
     }
 
@@ -56,7 +56,7 @@ class NewLecture extends React.Component {
                     <input onChange={this.onChangeName} value={this.state.name} placeholder="Podaj nazwę wykładu" className="form-control"/>
                     <input onChange={this.onChangeParticipantNumber} value={this.state.participantNumber} placeholder="Podaj liczbę uczestników" className="form-control"/>
                     <input onChange={this.onChangeStartDate} value={this.state.startdate} placeholder="Podaj datę startu" className="form-control"/>
-                    <input onChange={this.onChangeEndDate} value={this.state.endDate} placeholder="Podaj endDate" className="form-control"/>
+                    <input onChange={this.onChangeEndDate} value={this.state.endDate} placeholder="Podaj datę zakończenia" className="form-control"/>
                     <input onChange={this.onChangeDescription} value={this.state.description} placeholder="Podaj opis" className="form-control"/>
                     <input onChange={this.onChangeEventId} value={this.state.eventId} placeholder="Podaj id wydarzenia" className="form-control"/>
                     <button onClick={this.addEvent} className="btn btn-info">Dodaj wykład!</button>
