@@ -13,6 +13,8 @@ class NewEvent extends React.Component {
             endDate: '',
             participantNumber:0,
             description: '',
+            eventId:0,
+            events: []
         };
     }
 
@@ -36,14 +38,28 @@ class NewEvent extends React.Component {
         this.setState({description: event.target.value})
     }
 
+    onDelete = () => {
+        this.props.onDelete(this.props.eventId)
+    }
+
     addEvent = () => {
-        axios.post('/event', {ownerId: 1, name: this.state.name, participantNumber: this.state.participantNumber, startDate: this.state.startDate, endDate: this.state.endDate, description: this.state.description })
+        axios.post('/event', {eventId: this.state.eventId ,ownerId: 1, name: this.state.name, participantNumber: this.state.participantNumber, startDate: this.state.startDate, endDate: this.state.endDate, description: this.state.description })
             .then(()=>{
             })
             .catch((err)=>{
                 console.log(err);
             });
-    }
+        }
+
+    deleteEvent = (eventId) => {
+        if (window.confirm('Na pewno chcesz usunąć konferencję?'))
+        axios.delete(`/event/${eventId}`)
+        .then(() => {
+        })
+        .catch(err => {
+            console.log(err)
+        });
+        }
 
     render() {
         return (
@@ -56,6 +72,9 @@ class NewEvent extends React.Component {
                     <input onChange={this.onChangeEndDate} value={this.state.endDate} placeholder="Podaj endDate" className="form-control"/>
                     <input onChange={this.onChangeDescription} value={this.state.description} placeholder="Podaj opis" className="form-control"/>
                     <button onClick={this.addEvent} className="btn btn-info">Dodaj wydarzenie!</button>
+                </div>
+                <div className ="row">
+            <button onClick={this.deleteEvent} className="btn btn-info"> Usuń konferencję!</button>
                 </div>
                 <div className="container-fluid">
                 </div>
